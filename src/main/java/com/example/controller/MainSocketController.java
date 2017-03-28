@@ -4,6 +4,7 @@ import com.example.models.Alert;
 import com.example.models.Information;
 import com.example.repositorys.TempRepository;
 import com.example.services.SocketService;
+import com.example.services.UiServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
@@ -43,13 +44,13 @@ public class MainSocketController {
         uiService.notify(alert);
     }
 
-    /**
-     * User send new information
-     * @param information new information
-     */
-    @MessageMapping("/socket/sendAlert")
-    public void getAllUsers(Information information)
-    {
-        uiService.notify(information);
-    }
+//    /**
+//     * User send new information
+//     * @param information new information
+//     */
+//    @MessageMapping("/socket/sendAlert")
+//    public void getAllUsers(Information information)
+//    {
+//        uiService.notify(information);
+//    }
 }

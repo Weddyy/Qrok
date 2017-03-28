@@ -6,7 +6,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "dist",
+      "outDir": "/home/weddy/qrok/src/main/resources/static/js",
       "assets": [
         "assets",
         "favicon.ico"
