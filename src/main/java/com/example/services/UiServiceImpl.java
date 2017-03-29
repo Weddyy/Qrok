@@ -7,14 +7,15 @@ import com.example.models.exceptions.NullNotificationException;
 import com.example.repositorys.TempRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by weddy on 28.03.17.
  */
+@Service
 public class UiServiceImpl implements SocketService {
 
     private static final String MAIN_CHANEL = "/socket/main";
-
 
     @Autowired
     private SimpMessagingTemplate simpMessagingTemplate;
