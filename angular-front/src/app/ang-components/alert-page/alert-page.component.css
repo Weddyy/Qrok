@@ -1,0 +1,37 @@
+.addMenu
+{
+  margin: 10px;
+  padding: 5px;
+  display: inline-block;
+  border-radius: 10px;
+  background-color: #78e4ff;
+}
+
+.addMenu input
+{
+  margin: 5px 0;
+}
+
+table{
+  text-align: left;
+}
+
+.close{
+  height: 15px;
+  width: 15px;
+  font-size: 15px;
+}
+
+.alert-box{
+  background-color: #fff76c;
+  padding: 10px 5px;
+  margin: 3px;
+}
+
+.green-box{
+  background-color: #79ff65;
+}
+
+.red-box{
+  background-color: #ff5b5b;
+}

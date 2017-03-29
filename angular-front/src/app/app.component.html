@@ -1,4 +1,11 @@
-<h1>
-  {{title}}
-  <user-list></user-list>
-</h1>
+<div class="main">
+  <h1>
+    {{title}}
+  </h1>
+  <nav>
+    <a routerLinkActive="active" routerLink="/alert" class="btn btn-default">Alert</a>
+    <a routerLinkActive="active" routerLink="/info" class="btn btn-default">Information</a>
+  </nav>
+
+  <router-outlet></router-outlet>
+</div>

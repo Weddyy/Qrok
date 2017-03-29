@@ -1,0 +1,20 @@
+<div class="addMenu">
+  <input type="text" [(ngModel)]="newInformation.key" placeholder="Key"/><br>
+  <input type="text" [(ngModel)]="newInformation.value" placeholder="Value"/><br>
+  <button (click)="addInformation()">Save</button>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let info of informationArray">
+      <td class="col-xs-6">{{info?.key}}</td>
+      <td class="col-xs-6">{{info?.value}}</td>
+    </tr>
+  </tbody>
+</table>

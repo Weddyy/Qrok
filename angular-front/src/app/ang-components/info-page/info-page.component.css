@@ -1,0 +1,17 @@
+.addMenu
+{
+  margin: 10px;
+  padding: 5px;
+  display: inline-block;
+  border-radius: 10px;
+  background-color: #78e4ff;
+}
+
+.addMenu input
+{
+  margin: 5px 0;
+}
+
+table{
+  text-align: left;
+}

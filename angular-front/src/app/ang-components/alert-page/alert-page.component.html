@@ -1,0 +1,11 @@
+<div class="addMenu">
+  <input type="text" [(ngModel)]="newAlert.user" placeholder="Name"/><br>
+  <input type="text" [(ngModel)]="newAlert.text" placeholder="Msg"/><br>
+  <input type="number" [(ngModel)]="newAlert.severity" placeholder="Severity"/><br>
+  <button (click)="sendAlert()">Send</button>
+</div>
+
+<div *ngFor="let alerts of alertList; let i = index;" close="closeAlert(index)" class="alert-box"
+     [class.red-box]="alerts.severity == 0"
+     [class.green-box]="alerts.severity == 1"
+>{{alerts.text}} <div (click)="closeAlert(i)" class="close glyphicon glyphicon-remove"> </div> </div>
