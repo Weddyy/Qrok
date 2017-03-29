@@ -1,6 +1,6 @@
 export class Alert
 {
   text: string;
-  user: string;
+  userName: string;
   severity: number;
 }

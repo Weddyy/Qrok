@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.security.Principal;
 import java.util.Collection;
 
 /**
@@ -23,6 +25,11 @@ public class MainSocketController {
 
     @Autowired
     SocketService uiService;
+
+    @RequestMapping({ "/alert", "/info" })
+    public String index() {
+        return "forward:/index.html";
+    }
 
     /**
      * On connect chanel
@@ -39,7 +46,7 @@ public class MainSocketController {
      * @param alert new alert
      */
     @MessageMapping("/socket/sendAlert")
-    public void sendAlert(Alert alert)
+    public void sendAlert(Alert alert,Principal principal)
     {
         uiService.notify(alert);
     }

@@ -361,7 +361,7 @@ module.exports = module.exports.toString();
 /***/ 196:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"addMenu\">\n  <input type=\"text\" [(ngModel)]=\"newAlert.user\" placeholder=\"Name\"/><br>\n  <input type=\"text\" [(ngModel)]=\"newAlert.text\" placeholder=\"Msg\"/><br>\n  <input type=\"number\" [(ngModel)]=\"newAlert.severity\" placeholder=\"Severity\"/><br>\n  <button (click)=\"sendAlert()\">Send</button>\n</div>\n\n<div *ngFor=\"let alerts of alertList; let i = index;\" close=\"closeAlert(index)\" class=\"alert-box\"\n     [class.red-box]=\"alerts.severity == 0\"\n     [class.green-box]=\"alerts.severity == 1\"\n>{{alerts.text}} <div (click)=\"closeAlert(i)\" class=\"close glyphicon glyphicon-remove\"> </div> </div>\n"
+module.exports = "<div class=\"addMenu\">\n  <input type=\"text\" [(ngModel)]=\"newAlert.userName\" placeholder=\"Name\"/><br>\n  <input type=\"text\" [(ngModel)]=\"newAlert.text\" placeholder=\"Msg\"/><br>\n  <input type=\"number\" [(ngModel)]=\"newAlert.severity\" placeholder=\"Severity\"/><br>\n  <button (click)=\"sendAlert()\">Send</button>\n</div>\n\n<div *ngFor=\"let alerts of alertList; let i = index;\" close=\"closeAlert(index)\" class=\"alert-box\"\n     [class.red-box]=\"alerts.severity == 0\"\n     [class.green-box]=\"alerts.severity == 1\"\n>{{alerts.text}} <div (click)=\"closeAlert(i)\" class=\"close glyphicon glyphicon-remove\"> </div> </div>\n"
 
 /***/ }),
 
@@ -449,6 +449,7 @@ var SocketService = (function () {
      */
     SocketService.prototype.connectToChanel = function () {
         this.mainChanel = this.stomp.subscribe("/socket/main", this.response);
+        this.mainChanel = this.stomp.subscribe("/user/socket/main", this.response);
     };
     ;
     /**

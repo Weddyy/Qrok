@@ -47,6 +47,7 @@ export class SocketService {
    */
   private connectToChanel(){
     this.mainChanel = this.stomp.subscribe("/socket/main",this.response);
+    this.mainChanel = this.stomp.subscribe("/user/socket/main",this.response);
   };
 
   /**
