@@ -21,12 +21,17 @@ repositories {
 	mavenCentral()
 }
 
+configurations {
+	compile.exclude module: "spring-boot-starter-tomcat"
+}
+
 
 dependencies {
 	compileOnly('org.projectlombok:lombok')
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-validation')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile("org.springframework.boot:spring-boot-starter-jetty:1.5.2.RELEASE")
 	compile('org.springframework.boot:spring-boot-devtools')
 	compile("org.springframework.ldap:spring-ldap-core")
 	compile("org.springframework.security:spring-security-ldap")
