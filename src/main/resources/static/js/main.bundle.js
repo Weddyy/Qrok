@@ -312,7 +312,7 @@ exports = module.exports = __webpack_require__(31)();
 
 
 // module
-exports.push([module.i, ".addMenu\n{\n  margin: 10px;\n  padding: 5px;\n  display: inline-block;\n  border-radius: 10px;\n  background-color: #78e4ff;\n}\n\n.addMenu input\n{\n  margin: 5px 0;\n}\n\ntable{\n  text-align: left;\n}\n\n.close{\n  height: 15px;\n  width: 15px;\n  font-size: 15px;\n}\n\n.alert-box{\n  background-color: #fff76c;\n  padding: 10px 5px;\n  margin: 3px;\n}\n\n.green-box{\n  background-color: #79ff65;\n}\n\n.red-box{\n  background-color: #ff5b5b;\n}\n", ""]);
+exports.push([module.i, ".addMenu\n{\n  margin: 10px;\n  padding: 5px;\n  display: inline-block;\n  border-radius: 10px;\n  background-color: #78e4ff;\n}\n\n.addMenu input\n{\n  margin: 5px 0;\n}\n\ntable{\n  text-align: left;\n}\n\n.close{\n  height: 15px;\n  width: 15px;\n  font-size: 15px;\n}\n\n.alert-box{\n  background-color: #79ff65;\n  padding: 10px 5px;\n  margin: 3px;\n}\n\n.yellow-box{\n  background-color: #ffd627;\n}\n\n.red-box{\n  background-color: #ff5b5b;\n}\n", ""]);
 
 // exports
 
@@ -361,7 +361,7 @@ module.exports = module.exports.toString();
 /***/ 196:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"addMenu\">\n  <input type=\"text\" [(ngModel)]=\"newAlert.userName\" placeholder=\"Name\"/><br>\n  <input type=\"text\" [(ngModel)]=\"newAlert.text\" placeholder=\"Msg\"/><br>\n  <input type=\"number\" [(ngModel)]=\"newAlert.severity\" placeholder=\"Severity\"/><br>\n  <button (click)=\"sendAlert()\">Send</button>\n</div>\n\n<div *ngFor=\"let alerts of alertList; let i = index;\" close=\"closeAlert(index)\" class=\"alert-box\"\n     [class.red-box]=\"alerts.severity == 0\"\n     [class.green-box]=\"alerts.severity == 1\"\n>{{alerts.text}} <div (click)=\"closeAlert(i)\" class=\"close glyphicon glyphicon-remove\"> </div> </div>\n"
+module.exports = "<div class=\"addMenu\">\n  <input type=\"text\" [(ngModel)]=\"newAlert.userName\" placeholder=\"Name\"/><br>\n  <input type=\"text\" [(ngModel)]=\"newAlert.text\" placeholder=\"Msg\"/><br>\n  <input type=\"number\" [(ngModel)]=\"newAlert.severity\" placeholder=\"Severity\"/><br>\n  <button (click)=\"sendAlert()\">Send</button>\n</div>\n\n<div *ngFor=\"let alerts of alertList; let i = index;\" close=\"closeAlert(index)\" class=\"alert-box\"\n     [class.red-box]=\"alerts.severity == 0\"\n     [class.yellow-box]=\"alerts.severity == 1\"\n>{{alerts.text}} <div (click)=\"closeAlert(i)\" class=\"close glyphicon glyphicon-remove\"> </div> </div>\n"
 
 /***/ }),
 

@@ -23,13 +23,13 @@ table{
 }
 
 .alert-box{
-  background-color: #fff76c;
+  background-color: #79ff65;
   padding: 10px 5px;
   margin: 3px;
 }
 
-.green-box{
-  background-color: #79ff65;
+.yellow-box{
+  background-color: #ffd627;
 }
 
 .red-box{

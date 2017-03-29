@@ -7,5 +7,5 @@
 
 <div *ngFor="let alerts of alertList; let i = index;" close="closeAlert(index)" class="alert-box"
      [class.red-box]="alerts.severity == 0"
-     [class.green-box]="alerts.severity == 1"
+     [class.yellow-box]="alerts.severity == 1"
 >{{alerts.text}} <div (click)="closeAlert(i)" class="close glyphicon glyphicon-remove"> </div> </div>
