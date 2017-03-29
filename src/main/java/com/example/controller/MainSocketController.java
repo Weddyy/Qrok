@@ -28,8 +28,8 @@ public class MainSocketController {
      * On connect chanel
      * @return Information list.
      */
-    @SubscribeMapping("/socket/getUsers")
-    public Collection<Information> connectToUsrs()
+    @SubscribeMapping("/socket/main")
+    public Collection<Information> connectToMainChangel()
     {
         return tempRepository.getInformationList().values();
     }
@@ -39,18 +39,18 @@ public class MainSocketController {
      * @param alert new alert
      */
     @MessageMapping("/socket/sendAlert")
-    public void getAllUsers(Alert alert)
+    public void sendAlert(Alert alert)
     {
         uiService.notify(alert);
     }
 
-//    /**
-//     * User send new information
-//     * @param information new information
-//     */
-//    @MessageMapping("/socket/sendAlert")
-//    public void getAllUsers(Information information)
-//    {
-//        uiService.notify(information);
-//    }
+    /**
+     * User send new information
+     * @param information new information
+     */
+    @MessageMapping("/socket/sendInformation")
+    public void setInformation(Information information)
+    {
+        uiService.notify(information);
+    }
 }
