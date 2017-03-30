@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  */
 @ResponseStatus(value = HttpStatus.BAD_REQUEST)
 public class NullNotificationException extends RuntimeException{
-    
+
     public NullNotificationException()
     {
         super("Notification is null");
