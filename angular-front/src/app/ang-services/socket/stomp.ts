@@ -29,11 +29,6 @@ export class SocketService {
   };
 
   constructor(stomp: StompService) {
-    let a : Alert= new Alert();
-    a.text = "testText";
-    a.severity = 10;
-    this.alerts.push(a);
-
     stomp.configure(this.wsConf);
     stomp.startConnect().then(() => {
       this.connectToChanel()

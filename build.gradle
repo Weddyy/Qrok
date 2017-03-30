@@ -1,42 +1,36 @@
-buildscript {
-	ext {
-		springBootVersion = '1.5.2.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+// root build.gradle
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.4'
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
-
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
-
-repositories {
-	mavenCentral()
+task clearAngularFilesFromSpring(type: Delete) {
+    delete project(':spring-back').file('src/main/resources/static/ang-js')
 }
 
-configurations {
-	compile.exclude module: "spring-boot-starter-tomcat"
-}
+task buildAngular(dependsOn: ':angular-front:build'){}
 
 
-dependencies {
-	compileOnly('org.projectlombok:lombok')
-	compile('org.springframework.boot:spring-boot-starter-security')
-	compile('org.springframework.boot:spring-boot-starter-validation')
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile("org.springframework.boot:spring-boot-starter-jetty:1.5.2.RELEASE")
-	compile('org.springframework.boot:spring-boot-devtools')
-	compile("org.springframework.ldap:spring-ldap-core")
-	compile("org.springframework.security:spring-security-ldap")
-	compile("org.springframework:spring-tx")
-	compile("com.unboundid:unboundid-ldapsdk")
-	compile('org.springframework.boot:spring-boot-starter-websocket')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+task buildAngularAndCopy(type: Copy){
+    from project(':angular-front').file('dist')
+    into project(':spring-back').file('src/main/resources/static/ang-js')
+    include '**/*.js'
 }
+
+buildAngularAndCopy.dependsOn(clearAngularFilesFromSpring)
+buildAngularAndCopy.dependsOn(buildAngular)
+
+task buildSpring(dependsOn: ':spring-back:build'){}
+
+task bootRepackage{}
+
+bootRepackage.dependsOn(buildAngularAndCopy)
+bootRepackage.dependsOn(buildSpring)
+
+task clearAngular(dependsOn: ':angular-front:clean'){}
+
+task clearSpring(dependsOn: ':spring-back:clean'){}
+
+task clear{}
+clear.dependsOn(clearAngular)
+clear.dependsOn(clearSpring)
+clear.dependsOn(clearAngularFilesFromSpring)
