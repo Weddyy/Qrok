@@ -26,11 +26,6 @@ public class MainSocketController {
     @Autowired
     SocketService uiService;
 
-    @RequestMapping({ "/alert", "/info" })
-    public String index() {
-        return "forward:/index.html";
-    }
-
     /**
      * On connect chanel
      * @return Information list.
@@ -46,7 +41,7 @@ public class MainSocketController {
      * @param alert new alert
      */
     @MessageMapping("/socket/sendAlert")
-    public void sendAlert(Alert alert,Principal principal)
+    public void sendAlert(Alert alert)
     {
         uiService.notify(alert);
     }
